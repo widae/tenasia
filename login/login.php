@@ -6,7 +6,7 @@
 
 <link href="../resources/css/default.css" rel="stylesheet" type="text/css">
 
-<title>AndBeyondCapitalManagement</title>
+<title>Tenasia Admin</title>
 
 <style type="text/css">
 
@@ -14,17 +14,14 @@
 </head>
 <body>
 	<div id="wrap">
-	
-		<!-- header -->
-		<?php include '../navigation/header.php'; ?>
-		
+
 		<div class="row">
 			<div class="container-full text-center vertical-middle_div" style="background-color:#373737; font-size:20px; color:#fff; height:150px;">
 				<div style="margin:0 auto;">관리자 전용 페이지 입니다.</div>
 			</div>
 		</div>
 
-		<script language="javascript">		
+		<script language="javascript">
 			function hideImage(target) {
 				target.style.backgroundImage = "none";
 			}
@@ -44,14 +41,14 @@
 				}
 				return true;
 			}
-			
-		</script>	
-		
+
+		</script>
+
 		<div class="row" style="height:500px;">
 			<div class="container">
 				<div style="width:800px; margin: 0 auto; padding-top:100px;">
 					<form name="loginForm" method="post" onsubmit="return chkLoginValid();" action="./loginProc.php">
-						<table style="width:400px; margin:auto;" >			
+						<table style="width:400px; margin:auto;" >
 							<tr height="26px">
 								<td width="100px" style="text-align:right;">
 									<div style="margin-right:20px;">ID</div>
@@ -69,16 +66,13 @@
 								</td>
 								<td>
 									<input type="password" id="user_pw" name="user_pw" placeholder="비밀번호를 입력하세요"  tabindex="2" onFocus="javascript:this.value=''" style="width:150px;" />
-								</td>								
+								</td>
 							</tr>
 						</table>
 					</form>
 				</div>
 			</div>
 		</div>
-		
-		<!-- footer -->
-		<?php include '../navigation/footer.php'; ?>
 	</div> <!-- wrap -->
 </body>
 </html>

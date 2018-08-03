@@ -63,7 +63,14 @@
 <link rel="stylesheet" href="./resources/css/pure-css-select-style.css">
 <title>tenasia</title>
 </head>
-
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    // scroll(animate) to taget
+    $(".scroll").click(function(event){
+        $( 'html, body' ).stop().animate( { scrollTop : '0' } );
+    });
+});
+</script>
 <body>
     <div id="wrap">
     <!-- width: 100%; min-width:1020px; -->
@@ -85,8 +92,8 @@
 
                                 $mainImage;
                                 $imageUrls = explode(',', $article['images']);
-                                $numberOfRows = count($imageUrls);
-                                if($numberOfRows > 0){
+                                $numberOfUrls = count($imageUrls);
+                                if($numberOfUrls > 0){
                                     $mainImage = $article['images'];
                                 }else{
                                     $mainImage = $imageUrls[0];
@@ -141,8 +148,8 @@
 
                                 $mainImage;
                                 $imageUrls = explode(',', $rightSideArticle['images']);
-                                $numberOfRows = count($imageUrls);
-                                if($numberOfRows > 0){
+                                $numberOfUrls = count($imageUrls);
+                                if($numberOfUrls > 0){
                                     $mainImage = $rightSideArticle['images'];
                                 }else{
                                     $mainImage = $imageUrls[0];

@@ -35,12 +35,18 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
 .top_banner_title { font-family: "Nanum Square"; }
 
 /* 상단 링크 목록 */
+/*
 #top_link div { float:right; font-size:12px; width:110px; line-height:30px; text-align:center; font-weight:400; }
 #top_link a, a:active, a:visited { text-decoration:none; color:#fff; }
 #top_link a:hover { font-size:12px; font-weight:bold; color:#fff; }
+*/
+#top_link div { float:left; font-size:15px; line-height:30px; margin: 0px 10px; text-align:center; font-weight:400; }
+#top_link a, a:active, a:visited { text-decoration:none; color:#000000}
+#top_link a:hover { font-size:15px; color:#FF69B4; }
 
-
-#abcm_intro_nav a, #abcm_intro_nav a:hover, #abcm_intro_nav a:active, #abcm_intro_nav a:visited { text-decoration: none; color:#000; font-weight: 500; font-size: 16px; }
+#abcm_intro_nav a, #abcm_intro_nav a:hover, #abcm_intro_nav a:active, #abcm_intro_nav a:visited {
+	text-decoration: none; color:#000; font-weight: 500; font-size: 16px;
+}
 #abcm_intro_nav a:hover { font-weight:700; color:#0047a7; }
 
 

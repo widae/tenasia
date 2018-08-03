@@ -1,5 +1,10 @@
 <?php
-header('Content-Type: text/html; charset=UTF-8');
+
+    session_start();
+    if ( !isset( $_SESSION['user_id'] ) ) {
+        header("Location: http://localhost/tenasia/login/login.php");
+    }
+    header('Content-Type: text/html; charset=UTF-8');
     require_once('../common.php');
 
     $mysqli = DBConnect();
@@ -15,16 +20,16 @@ header('Content-Type: text/html; charset=UTF-8');
         global $mysqli, $type, $contents, $title, $link_url;
 
         $htmlContent = $contents;
+
         preg_match_all('/<img[^>]+>/i',$htmlContent, $imgTags);
-        for ($i = 0; $i < 1; $i++) {
-            // get the source string
+        for ($i = 0; $i < count($imgTags[0]); $i++) {
             preg_match('/src="([^"]+)/i',$imgTags[0][$i], $imgage);
-            // remove opening 'src=' tag, can`t get the regex right
             $origImageSrc[] = str_ireplace( 'src="', '',  $imgage[0]);
         }
 
-        //$sql = "INSERT INTO notice(type, title, contents, link_url, created_time) VALUES('$type', '$title', '$contents', '$link_url', now())";
-        $sql = "INSERT INTO article(subject, content, images) VALUES('$title', '$contents', '$origImageSrc[0]')";
+        $commaSeparated = implode(",", $origImageSrc);
+
+       $sql = "INSERT INTO article(subject, content, images) VALUES('$title', '$contents', '$commaSeparated')";
 
 
         $result = $mysqli->query($sql);
