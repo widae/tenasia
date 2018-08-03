@@ -9,15 +9,13 @@
 
     $mysqli = DBConnect();
 
-    $type = $_POST['type'];
     $title = $_POST['title'];
     $contents = $_POST['smarteditor'];
-    $link_url = $_POST['link_url']  == null ? 0 : $_POST['link_url'];
     $insert_notice = get_insert_notice();
 
     function get_insert_notice()
     {
-        global $mysqli, $type, $contents, $title, $link_url;
+        global $mysqli, $contents, $title;
 
         $htmlContent = $contents;
 
@@ -46,7 +44,7 @@
 if($insert_notice){
 ?>
 	alert("등록되었습니다.");
-	location.href = "./notice_view_list.php?type=<?=$type?>";
+	location.href = "./notice_view_list.php";
 <?php
 } else {
 ?>

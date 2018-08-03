@@ -6,7 +6,7 @@
 
     $currPage = isset($_GET['currPage']) && !empty($_GET['currPage']) ? $_GET['currPage'] : 0;
     $currBlock = isset($_GET['currBlock']) && !empty($_GET['currBlock']) ? $_GET['currBlock'] : 0;
-    $cntPerPage = 7;   // 한 페이지에 보여질 item 수
+    $cntPerPage = 2;   // 한 페이지에 보여질 item 수
     $numberOfRows = getNumberOfRows();
     $articles = getArticles();
     $paging = get_paging($currPage, $numberOfRows, $cntPerPage, $currBlock, 'index.php');
@@ -93,11 +93,8 @@ jQuery(document).ready(function($) {
                                 $mainImage;
                                 $imageUrls = explode(',', $article['images']);
                                 $numberOfUrls = count($imageUrls);
-                                if($numberOfUrls > 0){
-                                    $mainImage = $article['images'];
-                                }else{
-                                    $mainImage = $imageUrls[0];
-                                }
+                                $mainImage = $imageUrls[0];
+
 
                                 // RE!!!
                                 $plain = getplaintextintrofromhtml($article['content'], 100);
@@ -149,11 +146,7 @@ jQuery(document).ready(function($) {
                                 $mainImage;
                                 $imageUrls = explode(',', $rightSideArticle['images']);
                                 $numberOfUrls = count($imageUrls);
-                                if($numberOfUrls > 0){
-                                    $mainImage = $rightSideArticle['images'];
-                                }else{
-                                    $mainImage = $imageUrls[0];
-                                }
+                                $mainImage = $imageUrls[0];
 
                     ?>
                         <div class="container" style="width:100%; margin: 12px 0px;">

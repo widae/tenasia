@@ -116,11 +116,7 @@
                                 $mainImage;
                                 $imageUrls = explode(',', $rightSideArticle['images']);
                                 $numberOfRows = count($imageUrls);
-                                if($numberOfRows > 0){
-                                    $mainImage = $rightSideArticle['images'];
-                                }else{
-                                    $mainImage = $imageUrls[0];
-                                }
+                                $mainImage = $imageUrls[0];
 
                     ?>
                         <div class="container" style="width:100%; margin: 12px 0px;">
