@@ -1,6 +1,7 @@
 <?php
 
-    $host                     = "localhost";
+    //$host                     = "localhost";
+	$root                     = "http://192.168.19.55/tenasia";
     $LOG_FILE                 = "tenasia/tenasia.log";
 
     $dbhost                   = 'localhost';

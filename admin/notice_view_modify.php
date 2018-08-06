@@ -1,11 +1,11 @@
 <?php
 
+	 require_once('../common.php');
+
 	session_start();
     if ( !isset( $_SESSION['user_id'] ) ) {
-        header("Location: http://localhost/tenasia/login/login.php");
+        header("Location: $root/tenasia/login/login.php");
     }
-
-    require_once('../common.php');
 
     $mysqli = DBConnect();
 

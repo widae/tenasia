@@ -1,8 +1,10 @@
 <?php
 
+	require_once('../common.php');
+
 	session_start();
     if ( !isset( $_SESSION['user_id'] ) ) {
-        header("Location: http://localhost/tenasia/login/login.php");
+        header("Location: $root/login/login.php");
     }
 
     $type = isset($_GET['type']) && !empty($_GET['type']) ? 'notice' : $_GET['type'];

@@ -34,8 +34,8 @@
 </div>
 
 <div class="row"">
-    <img src="./logo.bmp" style="margin: 0px auto; display:block;">
+    <img src="./logo.bmp" style="width:700px; margin: 0px auto; display:block;">
 </div>
-<div class="row" style="margin: 20px 0px; text-align:center;">
+<div class="row" style="font-size:15pmargin: 20px 0px; text-align:center;">
     НОВОСТИ О K-POP И КОРЕЙСКИХ АЙДОЛАХ
 </div>

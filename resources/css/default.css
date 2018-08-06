@@ -170,3 +170,25 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
 .dateSection {font-size:11px; color:#b6b6b6; }
 .mainImageSection {width:100%; padding-top:7px;}
 .mainImage {width:100%;}
+
+.snsIconSection {width:40px; float:left; margin-right:15px;}
+
+#detail_link a:link, a:visited {
+    background-color: #800080;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 130px;
+    height: 30px;
+    border-radius: 30px;
+    font-size:15px;
+
+    margin: 20px 0px 40px 0px;
+}
+
+#detail_link a:hover, a:active {
+    background-color: #00498c;
+    font-size:15px;
+}
+

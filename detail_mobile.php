@@ -55,7 +55,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="viewport" content="width=1020"/>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link href="./resources/css/default.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/jquery.splitter.css" rel="stylesheet" type="text/css">
@@ -79,39 +79,22 @@
                 <hr style="width:1000px; margin:0px auto;"/>
                 -->
                 <!-- body -->
-                <div class="container" style="<?php echo $containerStyle; ?>">
+                <div class="container">
                     <!-- main -->
-                    <div class="container" style="<?php echo $mainDivStyle; ?>">
+                    <div class="container">
                     <?php
                         if($article != null) {
                             $created_time = date("F j, Y", strtotime($article['created_time']));
                     ?>
-                        <div class="container" style="width:100%;">
+                        <div class="container" style="width:100%;  padding:0px 70px;">
                             <div class="section_title_dark" style="font-size:50px; word-wrap:break-word;" >
                                 <?=$article['subject']?>
                             </div>
-                            <div class="dateSection">
+                            <div class="dateSection" style="font-size:25px;">
                                 <?=$created_time?>
                             </div>
                             <div class="section_subexplain" style="padding-top:7px">
                                  <?=$article['content']?>
-                            </div>
-                            <div style="margin: 50px 0px;">
-                                <div class="snsIconSection">
-                                    <a href="https://vk.com/id475629287" target="_blank">
-                                        <img class="mainImage" src="./resources/img/detail/vk_icon.png" alt="vk icon"/>
-                                    </a>
-                                </div>
-                                <div class="snsIconSection">
-                                    <a href="https://www.facebook.com/people/Tenasia-Russia/100023034790030" target="_blank">
-                                        <img class="mainImage" src="./resources/img/detail/facebook_icon.png" alt="vk icon"/>
-                                    </a>
-                                </div>
-                                <div class="snsIconSection">
-                                    <a href="https://www.instagram.com/tenasiarussia/" target="_blank">
-                                        <img class="mainImage" src="./resources/img/detail/instagram_icon.png" alt="vk icon"/>
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -123,7 +106,7 @@
                     <?php
                         }
                     ?>
-                    <div style="<?php echo $sideDivStyle; ?>">
+                    <div class="container">
                     <?php
                         if($numOfRightSideArticles > 0) {
                             foreach($rightSideArticles as $rightSideArticle):
@@ -136,18 +119,15 @@
                                 $mainImage = $imageUrls[0];
 
                     ?>
-                        <div class="container" style="width:100%; margin: 12px 0px;">
-                            <div style="width:35%; float:left;">
-                                <img class="mainImage" src="<?=$mainImage ?>" alt="article image"
-                                    style="width:100%"/>
+                        <div class="container" style="width:100%; padding:50px 70px;">
+                            <div class="section_title_dark" style="font-size:50px; word-wrap:break-word;" >
+                                <?=$rightSideArticle['subject']?>
                             </div>
-                            <div style="width:65%; height:100px; float:left; padding: 0px 5px;">
-                                <div style="height:70%; font-size:10px;">
-                                    <?=$rightSideArticle['subject']?>
-                                </div>
-                                <div style="height:30%; font-size:3px;">
-                                    <?=$created_time ?>
-                                </div>
+                            <div class="dateSection" style="font-size:25px;">
+                                <?=$created_time ?>
+                            </div>
+                            <div class="mainImageSection">
+                                <img class="mainImage" src="<?=$mainImage ?>" alt="article image"/>
                             </div>
                         </div>
                     <?php
@@ -168,9 +148,3 @@
     </div><!-- end of wrap -->
 </body>
 </html>
-
-<!--
-https://vk.com/id475629287
-https://www.facebook.com/people/Tenasia-Russia/100023034790030
-https://www.instagram.com/tenasiarussia/
-    -->
