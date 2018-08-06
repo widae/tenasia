@@ -167,7 +167,8 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
 .btn_detail a, btn_detail a:hover { text-decoration:none; box-sizing: border-box; }
 
 /* 위대한 추가 */
-.dateSection {font-size:11px; color:#b6b6b6; }
+
+.dateSection {font-size:11px; color:#000000; }
 .mainImageSection {width:100%; padding-top:7px;}
 .mainImage {width:100%;}
 

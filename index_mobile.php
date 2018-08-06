@@ -61,6 +61,11 @@
 <script type="text/javascript" src="./resources/smarteditor2/js/HuskyEZCreator.js" charset="utf-8"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css">
 <link rel="stylesheet" href="./resources/css/pure-css-select-style.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <title>tenasia</title>
 </head>
 <script type="text/javascript">
@@ -114,11 +119,19 @@ jQuery(document).ready(function($) {
                             <div class="section_subexplain" style="font-size:25px; padding-top:7px">
                                 <?=$intro ?>
                             </div>
+                            <div style="margin: 70px 0px;">
+                                <a class="btn btn-primary" role="button" style="border-radius:25px;"
+                                    href="<?=$root?>/detail_mobile.php?id=<?=$article['id']?>">
+                                    Подробнее...
+                                </a>
+                            </div>
+                            <!--
                             <div id="detail_link">
                                 <a href="<?=$root?>/detail_mobile.php?id=<?=$article['id']?>">
                                     Подробнее...
                                 </a>
                             </div>
+                            -->
                         </div>
                     <?php
                         endforeach;

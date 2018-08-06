@@ -64,6 +64,11 @@
 <script type="text/javascript" src="./resources/smarteditor2/js/HuskyEZCreator.js" charset="utf-8"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css">
 <link rel="stylesheet" href="./resources/css/pure-css-select-style.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <title>tenasia</title>
 </head>
 
@@ -87,14 +92,32 @@
                             $created_time = date("F j, Y", strtotime($article['created_time']));
                     ?>
                         <div class="container" style="width:100%;  padding:0px 70px;">
-                            <div class="section_title_dark" style="font-size:50px; word-wrap:break-word;" >
+                            <div class="section_title_dark" style="font-size:50px; font-weight:bold; word-wrap:break-word;" >
                                 <?=$article['subject']?>
                             </div>
-                            <div class="dateSection" style="font-size:25px;">
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+                            <div style="font-size:25px; color:#000000;">
                                 <?=$created_time?>
                             </div>
                             <div class="section_subexplain" style="padding-top:7px">
                                  <?=$article['content']?>
+                            </div>
+                            <div style="width: 100%; margin: 50px 0px;">
+                                <div style="width:70px; float:left; margin-right:15px;">
+                                    <a href="https://vk.com/id475629287" target="_blank">
+                                        <img class="mainImage" src="./resources/img/detail/vk_icon.png" alt="vk icon"/>
+                                    </a>
+                                </div>
+                                <div style="width:70px; float:left; margin-right:15px;">
+                                    <a href="https://www.facebook.com/people/Tenasia-Russia/100023034790030" target="_blank">
+                                        <img class="mainImage" src="./resources/img/detail/facebook_icon.png" alt="vk icon"/>
+                                    </a>
+                                </div>
+                                <div style="width:70px; float:left; margin-right:15px;">
+                                    <a href="https://www.instagram.com/tenasiarussia/" target="_blank">
+                                        <img class="mainImage" src="./resources/img/detail/instagram_icon.png" alt="vk icon"/>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -106,7 +129,7 @@
                     <?php
                         }
                     ?>
-                    <div class="container">
+                    <div class="container" style="padding: 70px 0px;">
                     <?php
                         if($numOfRightSideArticles > 0) {
                             foreach($rightSideArticles as $rightSideArticle):
@@ -119,15 +142,15 @@
                                 $mainImage = $imageUrls[0];
 
                     ?>
-                        <div class="container" style="width:100%; padding:50px 70px;">
+                        <div class="container" style="padding: 70px">
                             <div class="section_title_dark" style="font-size:50px; word-wrap:break-word;" >
                                 <?=$rightSideArticle['subject']?>
                             </div>
-                            <div class="dateSection" style="font-size:25px;">
+                            <div style="font-size:25px; color:#000000;">
                                 <?=$created_time ?>
                             </div>
                             <div class="mainImageSection">
-                                <img class="mainImage" src="<?=$mainImage ?>" alt="article image"/>
+                                <img class="img-thumbnail" src="<?=$mainImage ?>" alt="article image"/>
                             </div>
                         </div>
                     <?php
