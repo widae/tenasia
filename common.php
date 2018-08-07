@@ -224,7 +224,7 @@
 
 	    if($totalRecord != 0){
 	        if($currPage>0){
-	            $before_link = "<a style='text-decoration:none; color:#000;' href=./".$url;
+	            $before_link = "<a style='text-decoration:none; color:#fff;' href=./".$url;
 	            if($currPage<$currBlock*$page_per_block)
 	                $currBlock--;
 	                    $before_link = $before_link . "?currBlock=" . $currBlock;
@@ -232,14 +232,16 @@
 	                    $before_link = $before_link . "&currPage=" . ($currPage-1);
 	                    else
 	                        $before_link = $before_link . "&currPage=" . $currPage;
-	                        $before_link = $before_link . "><img src='/tenasia/resources/img/notice/btn_prev.png' style='margin-bottom:-4px; width:23px height:23px;'>&nbsp;&nbsp;";
+	                        //$before_link = $before_link . "><img src='/tenasia/resources/img/notice/btn_prev.png' style='margin-bottom:-4px; width:23px height:23px;'>&nbsp;&nbsp;";
+	                    	$before_link = $before_link . ">< Прежняя...";
 	        }
+
 	        if($currPage>0){
 	            $before_link = $before_link . "</a>";
 	        }
 
 	        if(ceil($totalRecord/$numPerPage)-1>$currPage){
-	            $after_link = "<a style='text-decoration:none; color:#000; margin-top:125px;' href=./". $url;
+	            $after_link = "<a style='text-decoration:none; color:#fff; margin-top:125px;' href=./". $url;
 	            if($currPage>0 && $currPage==($currBlock+1)*$page_per_block)
 	                $currBlock++;
 	                    $after_link = $after_link . "?currBlock=" . $currBlock;
@@ -248,7 +250,8 @@
 	                } else {
 	                    $after_link = $after_link . "&currPage=" . $currPage;
 	                }
-	                $after_link = $after_link . ">&nbsp;&nbsp;<img src='/tenasia/resources/img/notice/btn_next.png' style='margin-bottom:-4px; width:23px height:23px;'>";
+	                //$after_link = $after_link . ">&nbsp;&nbsp;<img src='/tenasia/resources/img/notice/btn_next.png' style='margin-bottom:-4px; width:23px height:23px;'>";
+	                $after_link = $after_link . ">Следующая... >";
 	        }
 
 	        if((int)($totalRecord/$numPerPage)-1>=$currPage){
@@ -256,38 +259,48 @@
 	        }
 
 	        if($currBlock > 0){
-	            $pre_link = "<a style='text-decoration:none; color:#000;' href=./".$url;
+	            $pre_link = "<a style='text-decoration:none; color:#fff;' href=./".$url;
 	                $pre_link = $pre_link . "?currBlock=" . ($currBlock-1);
 	                $pre_link .= "&currPage=" . (($currBlock-1)*$page_per_block);
-	                $pre_link .= "><img src='/tenasia/resources/img/notice/btn_prev_block.png' style='margin-bottom:-4px; width:23px height:23px;'>&nbsp;&nbsp</a>";
+	                //$pre_link .= "><img src='/tenasia/resources/img/notice/btn_prev_block.png' style='margin-bottom:-4px; width:23px height:23px;'>&nbsp;&nbsp</a>";
+	                $pre_link .= ">pre_link</a>";
 	        }
 
 	        for ($i = 0; $i < $page_per_block; $i++) {
-	            $curr_link=$curr_link . "<a style='text-decoration:none; font-size:15px; color:#373737;' href=./".$url;
+
+	        	if($currPage != ($currBlock*$page_per_block) + $i){
+	        		$curr_link=$curr_link . "<a style='text-decoration:none; font-size:15px; color:#fff;' href=./".$url;
 	                $curr_link=$curr_link . "?currBlock=" . $currBlock;
-	            $curr_link=$curr_link . "&currPage=" . (($currBlock*$page_per_block) + $i);
-	            $curr_link=$curr_link . ">";
+	            	$curr_link=$curr_link . "&currPage=" . (($currBlock*$page_per_block) + $i);
+	            	$curr_link=$curr_link . ">";
+	        	}else{
+	        		$curr_link=$curr_link . "<a style='text-decoration:none; font-size:15px; color:#fff; pointer-events: none; cursor: default; background-color:#80008099;;' href=./".$url;
+	                $curr_link=$curr_link . "?currBlock=" . $currBlock;
+		            $curr_link=$curr_link . "&currPage=" . (($currBlock*$page_per_block) + $i);
+		            $curr_link=$curr_link . ">";
+	        	}
 
 	            if($currPage == ($currBlock*$page_per_block) + $i){
-	                $curr_link = $curr_link . "<font color=red><b>";
+	                $curr_link = $curr_link . "<font color=#fff><b>";
 	                $curr_link=$curr_link . (($currBlock * $page_per_block) + $i + 1)."</b></font></a>";
 	            }else{
 	                $curr_link=$curr_link . (($currBlock * $page_per_block) + $i + 1)."</a> ";
 	            }
 
 	            if(($i+1)%$page_per_block!=0 && ($currBlock * $page_per_block) + $i + 1!=$total_page){
-	                $curr_link.="&nbsp;&nbsp;&nbsp;&nbsp;";
+	                $curr_link.="";
 	            }
 
 	            if (($currBlock * $page_per_block) + $i + 1 == $total_page)  break;
 	        }
 
 	        if ($total_block > $currBlock + 1) {
-	            $next_link = "<a style='text-decoration:none; color:#000;' href=./".$url;
+	            $next_link = "<a style='text-decoration:none; color:#fff;' href=./".$url;
 	                $next_link = $next_link ."?currBlock=".($currBlock + 1);
 	                $next_link .= "&currPage=".(($currBlock + 1) * $page_per_block);
 	            	//$next_link .= $next_link . ""
-	                $next_link .= ">&nbsp;&nbsp;<img src='/tenasia/resources/img/notice/btn_next_block.png' style='margin-bottom:-4px; width:23px height:23px;'></a>";
+	                //$next_link .= ">&nbsp;&nbsp;<img src='/tenasia/resources/img/notice/btn_next_block.png' style='margin-bottom:-4px; width:23px height:23px;'></a>";
+	                $next_link .= ">next_link</a>";
 	        }
 	    }
 	    $link_str=$pre_link.$before_link.$curr_link.$after_link.$next_link;

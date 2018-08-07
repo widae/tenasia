@@ -13,7 +13,7 @@
 
     $currPage = isset($_GET['currPage']) && !empty($_GET['currPage']) ? $_GET['currPage'] : 0;
     $currBlock = isset($_GET['currBlock']) && !empty($_GET['currBlock']) ? $_GET['currBlock'] : 0;
-    $cntPerPage = 7;	// 한 페이지에 보여질 item 수
+    $cntPerPage = 1;	// 한 페이지에 보여질 item 수
 
     $numberOfRows = getNumberOfRows();
     $articles = getArticles();
@@ -77,6 +77,41 @@
 <title>Tenasia Admin</title>
 
 <style type="text/css">
+
+#title_link a, a:active, a:visited {
+	font-size: 10px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #000000;
+	background-color: none;
+}
+
+#title_link a:hover {
+	font-size:10px;
+	font-weight: bold;
+	text-decoration:underline;
+	color:#000000;
+}
+
+#page_link { text-align:center; padding:55px 0px; }
+
+#page_link a:link, a:visited {
+    display: inline;
+    font-size:15px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #800080;
+    border-radius: 30px;
+    margin: 40px 5px;
+}
+
+#page_link a:hover, a:active {
+    background-color: #00498c;
+    font-size:15px;
+    font-weight: normal;
+}
 
 </style>
 </head>
@@ -190,19 +225,19 @@
 									name="checkRow" id="checkRow_<?=$i ?>" onClick="chkOnly1(this);">
 							</div>
 							<div class="notice_cell text-center">
-								<a href="./regist_notice_file.php?id=<?=$article['id']?>" target="_blank">
-									<?=$article['id']?>
-								</a>
+								<?=$article['id']?>
 							</div>
-							<div class="notice_cell">
+							<div id="title_link" class="notice_cell">
 								<a href="./notice_view_modify.php?type=<?=$type?>&id=<?=$article['id']?>">
 									<?=$subject?>
 								</a>
 							</div>
 							<div class="notice_cell">
 								<!-- margin:auto 관련 display:block 추가-->
-								<img src="<?=$mainImageUrl?>" alt="main image of the article"
-									style="max-width:100%; height:auto; margin:auto; display:block;"/>
+								<a href="./notice_view_modify.php?type=<?=$type?>&id=<?=$article['id']?>">
+									<img src="<?=$mainImageUrl?>" alt="main image of the article"
+										style="max-width:100%; height:auto; margin:auto; display:block;"/>
+								</a>
 							</div>
 							<div class="notice_cell"><?=$intro?></div>
 							<div class="notice_cell text-center"><?=$article['created_time'] ?></div>
@@ -217,9 +252,9 @@
 					<div style="width:100%; text-align:right;">
 						<a href="./notice_view_write.php?type=<?=$type ?>">글작성</a>
 					</div>
-					<div style="width:500px; margin:0 auto; text-align:center;">
-						<?=$paging?>
-					</div>
+                    <div id="page_link">
+                    	<?=$paging ?>
+                    </div>
 				</div>
 			</div>
 		</div>

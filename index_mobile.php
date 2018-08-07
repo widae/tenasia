@@ -67,15 +67,23 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <title>tenasia</title>
+
+<style>
+
+hr {
+    width: 850px;
+    height: 0px;
+    border: 1px solid grey;
+    margin-top: 50px;
+}
+
+#main_link { font-size:25px; word-wrap:break-word; }
+#main_link a, a:active, a:visited { text-decoration:none; color:#000000; background-color:#ffffff;}
+#main_link a:hover { font-size:25px; font-weight:500; text-decoration:underline; color:#000000; }
+
+</style>
+
 </head>
-<script type="text/javascript">
-jQuery(document).ready(function($) {
-    // scroll(animate) to taget
-    $(".scroll").click(function(event){
-        $( 'html, body' ).stop().animate( { scrollTop : '0' } );
-    });
-});
-</script>
 <body>
     <div id="wrap">
     <!-- width: 100%; min-width:1020px; -->
@@ -84,7 +92,7 @@ jQuery(document).ready(function($) {
         <!-- width: 100%; margin: 0 auto; -->
                 <?php include './header.php'; ?>
                 <!-- separator-->
-                <hr style="width:800px; margin:0px auto;"/>
+                <hr/>
                 <!-- body -->
                 <div class="container">
                     <!-- main -->
@@ -92,6 +100,8 @@ jQuery(document).ready(function($) {
                     <?php
                         if($numberOfRows > 0) {
                             foreach($articles as $article):
+
+                                $id = $article['id'];
 
                                 $created_time = date("F j, Y", strtotime($article['created_time']));
 
@@ -107,20 +117,24 @@ jQuery(document).ready(function($) {
 
                     ?>
                         <div class="container" style="width:100%; padding:0px 70px">
-                            <div class="section_title_dark" style="font-size:50px; word-wrap:break-word;" >
-                                <?=$article['subject']?>
+                            <div id="main_link" class="section_title_dark">
+                                <a href="<?=$root?>/detail_mobile.php?id=<?=$id?>">
+                                    <?=$article['subject']?>
+                                </a>
                             </div>
                             <div class="dateSection">
                                 <?=$created_time ?>
                             </div>
                             <div class="mainImageSection">
-                                <img class="mainImage" src="<?=$mainImage ?>" alt="article image"/>
+                                <a href="<?=$root?>/detail_mobile.php?id=<?=$id?>">
+                                    <img class="mainImage" src="<?=$mainImage ?>" alt="article image"/>
+                                </a>
                             </div>
                             <div class="section_subexplain" style="font-size:25px; padding-top:7px">
                                 <?=$intro ?>
                             </div>
-                            <div style="margin: 70px 0px;">
-                                <a class="btn btn-primary" role="button" style="border-radius:25px;"
+                            <div style="margin: 30px 0px;">
+                                <a class="btn btn-primary" role="button" style="font-size:30px; border-radius:25px;"
                                     href="<?=$root?>/detail_mobile.php?id=<?=$article['id']?>">
                                     Подробнее...
                                 </a>

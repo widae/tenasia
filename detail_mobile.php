@@ -70,8 +70,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <title>tenasia</title>
+<style>
+#side_link { font-size: 40px;  word-wrap:break-word; }
+#side_link a, a:active, a:visited { text-decoration:none; color:#000000; background-color:#ffffff;}
+#side_link a:hover { font-size:40px; font-weight:500; text-decoration:underline; color:#000000; }
+</style>
 </head>
-
 <body>
     <div id="wrap">
     <!-- width: 100%; min-width:1020px; -->
@@ -129,10 +133,12 @@
                     <?php
                         }
                     ?>
-                    <div class="container" style="padding: 70px 0px;">
+                    <div class="container">
                     <?php
                         if($numOfRightSideArticles > 0) {
                             foreach($rightSideArticles as $rightSideArticle):
+
+                                $id = $rightSideArticle['id'];
 
                                 $created_time = date("F j, Y", strtotime($rightSideArticle['created_time']));
 
@@ -142,15 +148,19 @@
                                 $mainImage = $imageUrls[0];
 
                     ?>
-                        <div class="container" style="padding: 70px">
-                            <div class="section_title_dark" style="font-size:50px; word-wrap:break-word;" >
-                                <?=$rightSideArticle['subject']?>
+                        <div class="container" style="padding: 70px;">
+                            <div id="side_link" class="section_title_dark" >
+                                <a href="<?=$root?>/detail_mobile.php?id=<?=$id?>">
+                                    <?=$rightSideArticle['subject']?>
+                                </a>
                             </div>
                             <div style="font-size:25px; color:#000000;">
                                 <?=$created_time ?>
                             </div>
                             <div class="mainImageSection">
-                                <img class="img-thumbnail" src="<?=$mainImage ?>" alt="article image"/>
+                                <a href="<?=$root?>/detail_mobile.php?id=<?=$id?>">
+                                <img class="img-thumbnail" style="padding:10px; box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);" src="<?=$mainImage ?>" alt="article image"/>
+                                </a>
                             </div>
                         </div>
                     <?php

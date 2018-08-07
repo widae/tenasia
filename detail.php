@@ -17,7 +17,7 @@
     $containerWidth = 1020 + $sideDivWidth*2;
     $mainDivWidth = $containerWidth - $sideDivWidth*2;
 
-    $containerStyle = 'width:' . $containerWidth . 'px; padding-left:' . $sideDivWidth . 'px;';
+    $containerStyle = 'width:' . $containerWidth . 'px; padding-left:' . $sideDivWidth . 'px; margin-top: 70px';
     $mainDivStyle = 'width:' . $mainDivWidth . 'px; float:left;';
     $sideDivStyle = 'width:' . $sideDivWidth . 'px; padding-left: 15px; margin:0px; float:left;';
 
@@ -65,8 +65,18 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css">
 <link rel="stylesheet" href="./resources/css/pure-css-select-style.css">
 <title>tenasia</title>
+<style>
+#side_link { height: 70%; font-size: 10px; }
+#side_link a, a:active, a:visited { text-decoration:none; color:#000000; background-color:#ffffff;}
+#side_link a:hover { font-size:10px; font-weight:500; text-decoration:underline; color:#000000; }
+</style>
 </head>
-
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    var body = $("html, body");
+    body.stop().animate({scrollTop:0}, 500, 'swing', function(){});
+});
+</script>
 <body>
     <div id="wrap">
     <!-- width: 100%; min-width:1020px; -->
@@ -96,7 +106,7 @@
                             <div class="section_subexplain" style="padding-top:7px">
                                  <?=$article['content']?>
                             </div>
-                            <div style="margin: 50px 0px;">
+                            <div>
                                 <div class="snsIconSection">
                                     <a href="https://vk.com/id475629287" target="_blank">
                                         <img class="mainImage" src="./resources/img/detail/vk_icon.png" alt="vk icon"/>
@@ -128,6 +138,8 @@
                         if($numOfRightSideArticles > 0) {
                             foreach($rightSideArticles as $rightSideArticle):
 
+                                $id = $rightSideArticle['id'];
+
                                 $created_time = date("F j, Y", strtotime($rightSideArticle['created_time']));
 
                                 $mainImage;
@@ -138,12 +150,16 @@
                     ?>
                         <div class="container" style="width:100%; margin: 12px 0px;">
                             <div style="width:35%; float:left;">
-                                <img class="mainImage" src="<?=$mainImage ?>" alt="article image"
-                                    style="width:100%"/>
+                                <a href="<?=$root?>/detail.php?id=<?=$id?>">
+                                    <img class="mainImage" src="<?=$mainImage ?>" alt="article image"
+                                        style="width:100%"/>
+                                </a>
                             </div>
-                            <div style="width:65%; height:100px; float:left; padding: 0px 5px;">
-                                <div style="height:70%; font-size:10px;">
+                            <div style="width:65%; height:110px; float:left; padding: 0px 5px;">
+                                <div id="side_link">
+                                    <a href="<?=$root?>/detail.php?id=<?=$id?>">
                                     <?=$rightSideArticle['subject']?>
+                                    </a>
                                 </div>
                                 <div style="height:30%; font-size:3px;">
                                     <?=$created_time ?>

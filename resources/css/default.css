@@ -172,7 +172,7 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
 .mainImageSection {width:100%; padding-top:7px;}
 .mainImage {width:100%;}
 
-.snsIconSection {width:40px; float:left; margin-right:15px;}
+.snsIconSection {width:40px; float:left; margin:50px 15px 100px 0px;}
 
 #detail_link a:link, a:visited {
     background-color: #800080;
