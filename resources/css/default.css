@@ -34,15 +34,106 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
 
 .top_banner_title { font-family: "Nanum Square"; }
 
-/* 상단 링크 목록 */
-/*
-#top_link div { float:right; font-size:12px; width:110px; line-height:30px; text-align:center; font-weight:400; }
-#top_link a, a:active, a:visited { text-decoration:none; color:#fff; }
-#top_link a:hover { font-size:12px; font-weight:bold; color:#fff; }
-*/
+
+.wrapper { display: flex; width: 100%; align-items: stretch; }
+#logoImage {
+    width: 538px;
+    height: auto;
+    margin: 30px auto 0px;
+    display:block;
+    object-fit: cover;
+    /* display: block으로 다음을 사용 */
+    position:relative;
+    top:0px;
+}
+@media (max-width: 1020px) {
+    #logoImage {
+        width: 90%;
+        margin-top: 150px;
+    }
+}
+#logoText { font-size:20px;}
+@media (max-width: 1020px) {
+    #logoText {
+        font-size: 35px;
+    }
+}
+#content { width: 100%; transition: all 0.3s; }
+@media (max-width: 1020px) {
+    #content {
+        /* margin-right: -400px; */
+        padding: 0px 5%;
+    }
+}
+#sidebar { min-width: 400px; max-width: 400px; color: #000;transition: all 0.3s;}
+@media (max-width: 1020px) {
+    #sidebar {
+        /* margin-right: -400px; */
+        display: none;
+    }
+}
+#detail_sidebar {
+    width: 350px;
+    max-width: 350px;
+    margin-right:-350px;
+    color: #000;
+    transition: all 0.3s;
+}
+@media (max-width: 1020px) {
+    #detail_sidebar {
+        display: none;
+    }
+}
 #top_link div { float:left; font-size:15px; line-height:30px; margin: 0px 10px; text-align:center; font-weight:400; }
+@media (max-width: 1020px) {
+    #top_link div{
+        margin-top: 40px;
+    }
+}
 #top_link a, a:active, a:visited { text-decoration:none; color:#000000}
 #top_link a:hover { font-size:15px; color:#FF69B4; }
+#top_link font { font-size: 15px; }
+@media (max-width: 1020px) {
+    #top_link font {
+        font-size: 50px;
+    }
+}
+#side_link { height: 70%; font-size: 10px; }
+#side_link a, a:active, a:visited { text-decoration:none; color:#000000; background-color:#ffffff;}
+#side_link a:hover { font-size:10px; text-decoration:underline; color:#000000; }
+#main_link { font-size:25px; word-wrap:break-word; }
+#main_link a, a:active, a:visited { text-decoration:none; color:#000000; background-color:#ffffff;}
+#main_link a:hover { font-size:25px; font-weight:500; text-decoration:underline; color:#000000; }
+#page_link { text-align:center; padding:55px 0px; }
+#page_link a:link, a:visited {
+    display: inline;
+    font-size:15px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #800080;
+    border-radius: 30px;
+    margin: 40px 5px;
+}
+#page_link a:hover, a:active {
+    background-color: #00498c;
+    font-size:15px;
+}
+#bottomNav {
+    width: 1020px;
+    margin: 0px auto 15px auto;
+    padding: 0px 5%;
+}
+@media (min-width: 1021px) {
+    #bottomNav {
+        display: none;;
+    }
+}
+#bottom_link { font-size: 40px;  word-wrap:break-word; }
+#bottom_link a, a:active, a:visited { text-decoration:none; color:#000000; background-color:#ffffff;}
+#bottom_link a:hover { font-size:40px; font-weight:500; text-decoration:underline; color:#000000; }
+
 
 #abcm_intro_nav a, #abcm_intro_nav a:hover, #abcm_intro_nav a:active, #abcm_intro_nav a:visited {
 	text-decoration: none; color:#000; font-weight: 500; font-size: 16px;

@@ -17,7 +17,7 @@
     $containerWidth = 1020 + $sideDivWidth*2;
     $mainDivWidth = $containerWidth - $sideDivWidth*2;
 
-    $containerStyle = 'width:' . $containerWidth . 'px; padding-left:' . $sideDivWidth . 'px;';
+    $containerStyle = 'width:' . $containerWidth . 'px; padding-left:' . $sideDivWidth . 'px; margin-top: 70px';
     $mainDivStyle = 'width:' . $mainDivWidth . 'px; float:left;';
     $sideDivStyle = 'width:' . $sideDivWidth . 'px; padding-left: 15px; margin:0px; float:left;';
 
@@ -55,7 +55,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=1020"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link href="./resources/css/default.css" rel="stylesheet" type="text/css">
 <link href="./resources/css/jquery.splitter.css" rel="stylesheet" type="text/css">
@@ -64,18 +64,19 @@
 <script type="text/javascript" src="./resources/smarteditor2/js/HuskyEZCreator.js" charset="utf-8"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css">
 <link rel="stylesheet" href="./resources/css/pure-css-select-style.css">
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <title>tenasia</title>
 <style>
-#side_link { font-size: 40px;  word-wrap:break-word; }
+#side_link { height: 70%; font-size: 10px; }
 #side_link a, a:active, a:visited { text-decoration:none; color:#000000; background-color:#ffffff;}
-#side_link a:hover { font-size:40px; font-weight:500; text-decoration:underline; color:#000000; }
+#side_link a:hover { font-size:10px; font-weight:500; text-decoration:underline; color:#000000; }
 </style>
 </head>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    var body = $("html, body");
+    body.stop().animate({scrollTop:0}, 500, 'swing', function(){});
+});
+</script>
 <body>
     <div id="wrap">
     <!-- width: 100%; min-width:1020px; -->
@@ -88,36 +89,35 @@
                 <hr style="width:1000px; margin:0px auto;"/>
                 -->
                 <!-- body -->
-                <div class="container">
+                <div class="container" style="<?php echo $containerStyle; ?>">
                     <!-- main -->
-                    <div class="container">
+                    <div class="container" style="<?php echo $mainDivStyle; ?>">
                     <?php
                         if($article != null) {
                             $created_time = date("F j, Y", strtotime($article['created_time']));
                     ?>
-                        <div class="container" style="width:100%;  padding:0px 70px;">
-                            <div class="section_title_dark" style="font-size:50px; font-weight:bold; word-wrap:break-word;" >
+                        <div class="container" style="width:100%;">
+                            <div class="section_title_dark" style="font-size:50px; word-wrap:break-word;" >
                                 <?=$article['subject']?>
                             </div>
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------ -->
-                            <div style="font-size:25px; color:#000000;">
+                            <div class="dateSection">
                                 <?=$created_time?>
                             </div>
                             <div class="section_subexplain" style="padding-top:7px">
                                  <?=$article['content']?>
                             </div>
-                            <div style="width: 100%; margin: 50px 0px;">
-                                <div style="width:70px; float:left; margin-right:15px;">
+                            <div>
+                                <div class="snsIconSection">
                                     <a href="https://vk.com/id475629287" target="_blank">
                                         <img class="mainImage" src="./resources/img/detail/vk_icon.png" alt="vk icon"/>
                                     </a>
                                 </div>
-                                <div style="width:70px; float:left; margin-right:15px;">
+                                <div class="snsIconSection">
                                     <a href="https://www.facebook.com/people/Tenasia-Russia/100023034790030" target="_blank">
                                         <img class="mainImage" src="./resources/img/detail/facebook_icon.png" alt="vk icon"/>
                                     </a>
                                 </div>
-                                <div style="width:70px; float:left; margin-right:15px;">
+                                <div class="snsIconSection">
                                     <a href="https://www.instagram.com/tenasiarussia/" target="_blank">
                                         <img class="mainImage" src="./resources/img/detail/instagram_icon.png" alt="vk icon"/>
                                     </a>
@@ -133,7 +133,7 @@
                     <?php
                         }
                     ?>
-                    <div class="container">
+                    <div style="<?php echo $sideDivStyle; ?>">
                     <?php
                         if($numOfRightSideArticles > 0) {
                             foreach($rightSideArticles as $rightSideArticle):
@@ -148,23 +148,26 @@
                                 $mainImage = $imageUrls[0];
 
                     ?>
-                        <div class="container" style="padding: 70px;">
-                            <div id="side_link" class="section_title_dark" >
-                                <a href="<?=$root?>/detail_mobile.php?id=<?=$id?>">
+                        <div class="container" style="width:100%; margin: 12px 0px;">
+                            <div style="width:35%; float:left;">
+                                <a href="<?=$root?>/detail.php?id=<?=$id?>">
+                                    <img class="mainImage" src="<?=$mainImage ?>" alt="article image"
+                                        style="width:100%"/>
+                                </a>
+                            </div>
+                            <div style="width:65%; height:110px; float:left; padding: 0px 5px;">
+                                <div id="side_link">
+                                    <a href="<?=$root?>/detail.php?id=<?=$id?>">
                                     <?=$rightSideArticle['subject']?>
-                                </a>
-                            </div>
-                            <div style="font-size:25px; color:#000000;">
-                                <?=$created_time ?>
-                            </div>
-                            <div class="mainImageSection">
-                                <a href="<?=$root?>/detail_mobile.php?id=<?=$id?>">
-                                <img class="img-thumbnail" style="padding:10px; box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);" src="<?=$mainImage ?>" alt="article image"/>
-                                </a>
+                                    </a>
+                                </div>
+                                <div style="height:30%; font-size:3px;">
+                                    <?=$created_time ?>
+                                </div>
                             </div>
                         </div>
                     <?php
-                            endforeach;
+                        endforeach;
                     ?>
                     </div>
                     <?php
@@ -181,3 +184,9 @@
     </div><!-- end of wrap -->
 </body>
 </html>
+
+<!--
+https://vk.com/id475629287
+https://www.facebook.com/people/Tenasia-Russia/100023034790030
+https://www.instagram.com/tenasiarussia/
+    -->

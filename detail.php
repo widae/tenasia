@@ -13,14 +13,6 @@
     $rightSideArticles = getRightSideArticles();
     $numOfRightSideArticles = getNumOfRightSideArticles();
 
-    $sideDivWidth = 300;
-    $containerWidth = 1020 + $sideDivWidth*2;
-    $mainDivWidth = $containerWidth - $sideDivWidth*2;
-
-    $containerStyle = 'width:' . $containerWidth . 'px; padding-left:' . $sideDivWidth . 'px; margin-top: 70px';
-    $mainDivStyle = 'width:' . $mainDivWidth . 'px; float:left;';
-    $sideDivStyle = 'width:' . $sideDivWidth . 'px; padding-left: 15px; margin:0px; float:left;';
-
     function getArticleById($id){
         global $mysqli;
         $sql = "SELECT * FROM article WHERE id = $id";
@@ -32,7 +24,6 @@
             return null;
         }
     }
-
     function getRightSideArticles(){
         global $mysqli;
         $sql = "SELECT * FROM article ORDER BY created_time DESC LIMIT 20";
@@ -55,21 +46,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="viewport" content="width=1020, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<link href="./resources/css/default.css" rel="stylesheet" type="text/css">
-<link href="./resources/css/jquery.splitter.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="./resources/js/jquery-3.2.1.js"></script>
-<script type="text/javascript" src="./resources/js/jquery.splitter-0.14.0.js"></script>
-<script type="text/javascript" src="./resources/smarteditor2/js/HuskyEZCreator.js" charset="utf-8"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css">
-<link rel="stylesheet" href="./resources/css/pure-css-select-style.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="./resources/css/default.css" rel="stylesheet" type="text/css">
 <title>tenasia</title>
-<style>
-#side_link { height: 70%; font-size: 10px; }
-#side_link a, a:active, a:visited { text-decoration:none; color:#000000; background-color:#ffffff;}
-#side_link a:hover { font-size:10px; font-weight:500; text-decoration:underline; color:#000000; }
-</style>
 </head>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
@@ -79,114 +66,115 @@ jQuery(document).ready(function($) {
 </script>
 <body>
     <div id="wrap">
-    <!-- width: 100%; min-width:1020px; -->
-    <!-- width = P.W or 1020px -->
-        <div class="container-full">
-        <!-- width: 100%; margin: 0 auto; -->
-                <?php include './header.php'; ?>
-                <!-- separator-->
-                <!--
-                <hr style="width:1000px; margin:0px auto;"/>
-                -->
-                <!-- body -->
-                <div class="container" style="<?php echo $containerStyle; ?>">
-                    <!-- main -->
-                    <div class="container" style="<?php echo $mainDivStyle; ?>">
-                    <?php
-                        if($article != null) {
-                            $created_time = date("F j, Y", strtotime($article['created_time']));
-                    ?>
-                        <div class="container" style="width:100%;">
-                            <div class="section_title_dark" style="font-size:50px; word-wrap:break-word;" >
-                                <?=$article['subject']?>
-                            </div>
-                            <div class="dateSection">
-                                <?=$created_time?>
-                            </div>
-                            <div class="section_subexplain" style="padding-top:7px">
-                                 <?=$article['content']?>
-                            </div>
-                            <div>
-                                <div class="snsIconSection">
-                                    <a href="https://vk.com/id475629287" target="_blank">
-                                        <img class="mainImage" src="./resources/img/detail/vk_icon.png" alt="vk icon"/>
-                                    </a>
-                                </div>
-                                <div class="snsIconSection">
-                                    <a href="https://www.facebook.com/people/Tenasia-Russia/100023034790030" target="_blank">
-                                        <img class="mainImage" src="./resources/img/detail/facebook_icon.png" alt="vk icon"/>
-                                    </a>
-                                </div>
-                                <div class="snsIconSection">
-                                    <a href="https://www.instagram.com/tenasiarussia/" target="_blank">
-                                        <img class="mainImage" src="./resources/img/detail/instagram_icon.png" alt="vk icon"/>
-                                    </a>
-                                </div>
-                            </div>
+
+        <?php include './header.php'; ?>
+
+        <div class="container" style="margin: 20px auto 0px auto; padding: 0px 5%;">
+            <div class="wrapper">
+                <div id="content">
+                <?php
+                    if($article != null) {
+                        $created_time = date("F j, Y", strtotime($article['created_time']));
+                ?>
+                    <div class="container" style="width:100%;">
+                        <div class="section_title_dark" style="font-size:50px; word-wrap:break-word;" >
+                            <?=$article['subject']?>
                         </div>
-                    </div>
-                    <!-- main -->
-                    <?php
-                        }else{
-                    ?>
-                    <div class="container text-center" style="padding-top:40px; font-size:25px; color:#373737;">등록된 공지사항이 존재하지 않습니다.</div>
-                    <?php
-                        }
-                    ?>
-                    <div style="<?php echo $sideDivStyle; ?>">
-                    <?php
-                        if($numOfRightSideArticles > 0) {
-                            foreach($rightSideArticles as $rightSideArticle):
-
-                                $id = $rightSideArticle['id'];
-
-                                $created_time = date("F j, Y", strtotime($rightSideArticle['created_time']));
-
-                                $mainImage;
-                                $imageUrls = explode(',', $rightSideArticle['images']);
-                                $numberOfRows = count($imageUrls);
-                                $mainImage = $imageUrls[0];
-
-                    ?>
-                        <div class="container" style="width:100%; margin: 12px 0px;">
-                            <div style="width:35%; float:left;">
-                                <a href="<?=$root?>/detail.php?id=<?=$id?>">
-                                    <img class="mainImage" src="<?=$mainImage ?>" alt="article image"
-                                        style="width:100%"/>
+                        <div class="dateSection">
+                            <?=$created_time?>
+                        </div>
+                        <div class="section_subexplain" style="padding-top:7px">
+                             <?=$article['content']?>
+                        </div>
+                        <div>
+                            <div class="snsIconSection">
+                                <a href="https://vk.com/id475629287" target="_blank">
+                                    <img class="mainImage" src="./resources/img/detail/vk_icon.png" alt="vk icon"/>
                                 </a>
                             </div>
-                            <div style="width:65%; height:110px; float:left; padding: 0px 5px;">
-                                <div id="side_link">
-                                    <a href="<?=$root?>/detail.php?id=<?=$id?>">
-                                    <?=$rightSideArticle['subject']?>
-                                    </a>
-                                </div>
-                                <div style="height:30%; font-size:3px;">
-                                    <?=$created_time ?>
-                                </div>
+                            <div class="snsIconSection">
+                                <a href="https://www.facebook.com/people/Tenasia-Russia/100023034790030" target="_blank">
+                                    <img class="mainImage" src="./resources/img/detail/facebook_icon.png" alt="vk icon"/>
+                                </a>
+                            </div>
+                            <div class="snsIconSection">
+                                <a href="https://www.instagram.com/tenasiarussia/" target="_blank">
+                                    <img class="mainImage" src="./resources/img/detail/instagram_icon.png" alt="vk icon"/>
+                                </a>
                             </div>
                         </div>
-                    <?php
-                        endforeach;
-                    ?>
                     </div>
-                    <?php
-                        }else{
-                    ?>
-                    <div style="width:340px; margin:0px; float:left;">
-                    </div>
-                    <?php
-                        }
-                    ?>
+                <?php
+                    }
+                ?>
                 </div>
+                <nav id="detail_sidebar">
+                <?php
+                    if($numOfRightSideArticles > 0) {
+                        foreach($rightSideArticles as $rightSideArticle):
+                            $id = $rightSideArticle['id'];
+                            $created_time = date("F j, Y", strtotime($rightSideArticle['created_time']));
+                            $mainImage;
+                            $imageUrls = explode(',', $rightSideArticle['images']);
+                            $numberOfUrls = count($imageUrls);
+                            $mainImage = $imageUrls[0];
+
+                ?>
+                    <div class="container" style="width:100%; margin: 12px 0px;">
+                        <div style="width:30%; float:left;">
+                            <a href="<?=$root?>/detail.php?id=<?=$id?>">
+                                <img class="mainImage" src="<?=$mainImage ?>" alt="article image"
+                                    style="width:100%"/>
+                            </a>
+                        </div>
+                        <div style="width:70%; height:100px; float:left; padding: 0px 5px;">
+                            <div id="side_link">
+                                <a href="<?=$root?>/detail.php?id=<?=$id?>">
+                                    <?=$rightSideArticle['subject']?>
+                                </a>
+                            </div>
+                            <div style="height:30%; font-size:3px;">
+                                <?=$created_time ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php
+                        endforeach;
+                    }
+                ?>
+                </nav>
+            </div><!-- end of wrapper -->
+        </div><!-- end of container -->
+
+         <?php
+            if($numOfRightSideArticles > 0) {
+                foreach($rightSideArticles as $rightSideArticle):
+                    $id = $rightSideArticle['id'];
+                    $created_time = date("F j, Y", strtotime($rightSideArticle['created_time']));
+                    $mainImage;
+                    $imageUrls = explode(',', $rightSideArticle['images']);
+                    $numberOfRows = count($imageUrls);
+                    $mainImage = $imageUrls[0];
+        ?>
+        <div id="bottomNav">
+            <div id="bottom_link" class="section_title_dark" >
+                <a href="<?=$root?>/detail_mobile.php?id=<?=$id?>">
+                    <?=$rightSideArticle['subject']?>
+                </a>
+            </div>
+            <div style="font-size:25px; color:#000000;">
+                <?=$created_time ?>
+            </div>
+            <div class="mainImageSection">
+                <a href="<?=$root?>/detail_mobile.php?id=<?=$id?>">
+                    <img class="img-thumbnail" style="padding:10px; box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);" src="<?=$mainImage ?>" alt="article image"/>
+                </a>
             </div>
         </div>
+        <?php
+                endforeach;
+            }
+        ?>
     </div><!-- end of wrap -->
 </body>
 </html>
-
-<!--
-https://vk.com/id475629287
-https://www.facebook.com/people/Tenasia-Russia/100023034790030
-https://www.instagram.com/tenasiarussia/
-    -->
