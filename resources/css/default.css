@@ -4,7 +4,6 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 @import url("//cdn.rawgit.com/hiun/NanumSquare/master/nanumsquare.css");
 
-
 html, body { margin: 0; padding: 0; }
 html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 *, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
@@ -16,7 +15,6 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
 .text-center { text-align: center; }
 .container-full { width: 100%; margin: 0 auto; }
 .container { width: 1020px; margin: 0 auto; }
-
 .section_title { padding-top:80px; }
 .section_title hr { height:1px; width:80px; }
 /* title - Notosans Korea, 28px, Bold, 자간 -30%, #373737, #fff*/
@@ -25,16 +23,15 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
 /* subtitle - Notosans Korea, 20px, regular, #373737 */
 .section_subtitle_light { padding-top:25px; font-size:20px; color:white; }
 .section_subtitle_dark { padding-top:25px; font-size:20px; color:#373737; }
-
 /* explain - Notosans Korea, 15px, medium, bold, 자간 -30%, #373737, #0047a6(파랑)*/
 .section_explain { font-size:20px; font-weight:500; color:#373737; }
 /* subexplain - Notosans Korea, 15px, regular, 행간 25pt, 자간 -30%, #373737 } */
 .section_subexplain { font-size:15px; color: #373737; }
 .section_product_explain { padding-top:25px; font-size:20px; color:#373737; }
-
 .top_banner_title { font-family: "Nanum Square"; }
 
-
+/* 위대한 추가 */
+#wrap hr { border-top: solid grey 1px; }
 .wrapper { display: flex; width: 100%; align-items: stretch; }
 #logoImage {
     width: 538px;
@@ -84,14 +81,14 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
         display: none;
     }
 }
-#top_link div { float:left; font-size:15px; line-height:30px; margin: 0px 10px; text-align:center; font-weight:400; }
+#top_link div { float:left; font-size:15px; line-height:30px; margin: 0px 10px; text-align:center; font-weight:300; }
 @media (max-width: 1020px) {
     #top_link div{
-        margin-top: 40px;
+        margin: 40px 25px 0px;
     }
 }
-#top_link a, a:active, a:visited { text-decoration:none; color:#000000}
-#top_link a:hover { font-size:15px; color:#FF69B4; }
+#top_link a, a:active, a:visited { text-decoration:none; color:#000000; background-color:#fff}
+#top_link a:hover { font-size:15px; color:#FF69B4; font-weight:300; }
 #top_link font { font-size: 15px; }
 @media (max-width: 1020px) {
     #top_link font {
@@ -102,8 +99,29 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
 #side_link a, a:active, a:visited { text-decoration:none; color:#000000; background-color:#ffffff;}
 #side_link a:hover { font-size:10px; text-decoration:underline; color:#000000; }
 #main_link { font-size:25px; word-wrap:break-word; }
+@media (max-width: 1020px) {
+    #main_link {
+        font-size: 50px;
+    }
+}
 #main_link a, a:active, a:visited { text-decoration:none; color:#000000; background-color:#ffffff;}
 #main_link a:hover { font-size:25px; font-weight:500; text-decoration:underline; color:#000000; }
+@media (max-width: 1020px) {
+    #main_link a:hover {
+        font-size: 50px;
+    }
+}
+@media (max-width: 1020px) {
+    .section_subexplain {
+        font-size: 30px;
+    }
+}
+.dateSection {font-size:11px; color:#000000; }
+@media (max-width: 1020px) {
+    .dateSection {
+        font-size: 30px;
+    }
+}
 #page_link { text-align:center; padding:55px 0px; }
 #page_link a:link, a:visited {
     display: inline;
@@ -122,12 +140,12 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
 }
 #bottomNav {
     width: 1020px;
-    margin: 0px auto 15px auto;
+    margin: 0px auto 50px auto;
     padding: 0px 5%;
 }
 @media (min-width: 1021px) {
     #bottomNav {
-        display: none;;
+        display: none;
     }
 }
 #bottom_link { font-size: 40px;  word-wrap:break-word; }
@@ -135,19 +153,58 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
 #bottom_link a:hover { font-size:40px; font-weight:500; text-decoration:underline; color:#000000; }
 
 
+.mainImageSection {width:100%; padding-top:7px;}
+.mainImage {width:100%;}
+.snsIconSection {width:40px; float:left; margin:50px 15px 100px 0px;}
+
+
+#detail_link a:link, a:visited {
+
+    background-color: #800080;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 130px;
+    height: 30px;
+    /* 중앙 배치를 위해 사용 */
+    line-height: 30px;
+    border-radius: 30px;
+    font-size:15px;
+
+    margin: 20px 0px 40px 0px;
+}
+#detail_link a:hover, a:active {
+    background-color: #00498c;
+    font-size:15px;
+}
+@media (max-width: 1020px) {
+    #detail_link a:link, a:visited {
+        width: 220px;
+        height: 60px;
+        line-height: 60px;
+        border-radius: 60px;
+        font-size: 30px;
+    }
+}
+@media (max-width: 1020px) {
+    #detail_link a:hover, a:active {
+        border-radius: 60px;
+        font-size: 30px;
+    }
+}
+
+
 #abcm_intro_nav a, #abcm_intro_nav a:hover, #abcm_intro_nav a:active, #abcm_intro_nav a:visited {
 	text-decoration: none; color:#000; font-weight: 500; font-size: 16px;
 }
 #abcm_intro_nav a:hover { font-weight:700; color:#0047a7; }
-
-
 /* about abcm > management team */
 #abcm_managementteam .name_ko { font-size:16px; font-weight:bold; color:#0047a6; }
 #abcm_managementteam .name_en { font-size:14px; font-weight:bold; color:gray; }
 #abcm_managementteam .position { font-size:12px; font-weight:bold; color:#373737; }
 #abcm_managementteam .career { font-size:13px; font-weight:bold; color:#373737; }
 #abcm_managementteam hr { width:50px; }
-
 .vertical-middle_div {
 	display: -ms-flexbox;
 	display: -webkit-flex;
@@ -157,14 +214,12 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
 	-webkit-box-align: center;
 	align-items: center;
 }
-
 #management_character .subject { font-size:20px; font-weight:bold; color:#373737; text-align:left; }
 #management_character .title { font-size:15px; font-weight:bold; color:#104ea1; text-align:left; margin-left:10px; }
 #management_character .explain { font-size:15px; color:#373737; text-align:left; margin-left:10px; margin-top:5px; }
 #management_service .subject { font-size:20px; font-weight:bold; color:#373737; text-align:left; }
 #management_service .title { font-size:15px; font-weight:bold; color:#104ea1; text-align:left; margin-left:10px; }
 #management_service .explain { font-size:15px; color:#373737; text-align:left; margin-left:10px; margin-top:5px; }
-
 /* Modal Dialog (가입문의 및 상담) - NON Jquery, NON Javascript */
 .modalDialog { position: fixed; font-family: Arial, Helvetica, sans-serif;
 	top: 0; right: 0; bottom: 0; left: 0; background: rgba(0,0,0,0);
@@ -188,7 +243,6 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
 }
 .closeModalDialog:hover { background: #00d9ff; font-size:30px; }
 /* END Modal Dialog (가입문의 및 상담) */
-
 /* Top Navi */
 .navigation_top { width: 1024px; height: 78px; margin : 0 auto; border: none; background-color: #fff; overflow: hidden; margin: 0 auto; }
 .navigation_top_logo { margin-top:15px; display: block; vertical-align:middle; width: 173px; float: left; }
@@ -206,14 +260,12 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
 .navigation_top_item li ul a { display: block; font-style: normal; text-align: center; line-height: 50px; }
 .navigation_top_item li ul a:hover, .navigation_top li ul li:hover a { color: #ffffff; background-color:#0047a6; margin: 0 auto; }
 /* end of Top Navi */
-
 .product_detail_table { border:1px solid #d2d2d2; border-collapse: collapse; width:100%; font-size:15px; font-weight:400; }
 .product_detail_table tr { border-bottom:1px solid #d2d2d2; }
 .product_detail_table tr th { background-color: #f2f2f2; width:200px; text-align:center; font-size:15px; font-weight:400; }
 .product_detail_table tr td { text-align:left; font-size:15px; font-weight:400; }
 .product_detail_table tr td div { margin: 15px 15px; }
 .product_detail_table table tr { border:0px; }
-
 /* 메인(index.jsp) 내 보도자료, Research 스와이퍼 */
 .notice_wrapper { background-color:#fff; }
 .notice_title { font-size:20px; font-weight:bold; color:#fff; text-align:center; padding-top:10; padding-bottom:30px; }
@@ -224,8 +276,6 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
 .notice_notice .publisher { position: absolute; left:0px; top:100px; padding:0 45px; }
 .notice_notice .contents { position:absolute; left:0px; top:130px; padding:0 45px; }
 .notice_notice .moreInfo { position:absolute; right:45px; bottom:35px; }
-
-
 /* 공지사항 */
 .client_notice_table { margin: 0 0 40px 0; width: 100%; display: table; font-size:13px; }
 @media screen and (max-width: 580px) { .client_notice_table { display: block; } }
@@ -237,8 +287,6 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
 @media screen and (max-width: 580px) { .client_notice_row { padding: 8px 0; display: block; } }
 .client_notice_cell { border-top:1px solid #b5b5b5; padding: 6px 12px; display: table-cell; vertical-align:middle; }
 @media screen and (max-width: 580px) { .client_notice_cell { padding: 2px 12px; display: block; } }
-
-
 /* 게시글 등록페이지 */
 .notice_table { margin: 0 0 40px 0; width: 100%; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); display: table; font-size:12px; }
 @media screen and (max-width: 580px) { .notice_table { display: block; } }
@@ -252,35 +300,5 @@ a, a:hover, a:active, a:visited { text-decoration: none; }
 @media screen and (max-width: 580px) { .notice_row { padding: 8px 0; display: block; } }
 .notice_cell { border:1px solid #fff; padding: 6px 12px; display: table-cell; vertical-align:middle; }
 @media screen and (max-width: 580px) { .notice_cell { padding: 2px 12px; display: block; } }
-
 .empty_height { line-height:7px; }
-
 .btn_detail a, btn_detail a:hover { text-decoration:none; box-sizing: border-box; }
-
-/* 위대한 추가 */
-
-.dateSection {font-size:11px; color:#000000; }
-.mainImageSection {width:100%; padding-top:7px;}
-.mainImage {width:100%;}
-
-.snsIconSection {width:40px; float:left; margin:50px 15px 100px 0px;}
-
-#detail_link a:link, a:visited {
-    background-color: #800080;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    width: 130px;
-    height: 30px;
-    border-radius: 30px;
-    font-size:15px;
-
-    margin: 20px 0px 40px 0px;
-}
-
-#detail_link a:hover, a:active {
-    background-color: #00498c;
-    font-size:15px;
-}
-

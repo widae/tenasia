@@ -74,7 +74,7 @@ jQuery(document).ready(function($) {
     <div id="wrap">
         <?php include './header.php'; ?>
 
-        <hr style="width:1000px; margin: 50px auto 0px auto;"/>
+        <hr style="width:90%; margin: 50px auto 0px;"/>
 
         <div class="container" style="margin: 20px auto 0px auto; padding: 0px 10px;">
             <div class="wrapper">

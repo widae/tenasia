@@ -69,21 +69,21 @@ jQuery(document).ready(function($) {
 
         <?php include './header.php'; ?>
 
-        <div class="container" style="margin: 20px auto 0px auto; padding: 0px 5%;">
+        <div class="container" style="margin: 20px 0px 0px; padding: 0px 5%;">
             <div class="wrapper">
-                <div id="content">
+                <div id="content" style="padding: 0px">
                 <?php
                     if($article != null) {
                         $created_time = date("F j, Y", strtotime($article['created_time']));
                 ?>
                     <div class="container" style="width:100%;">
-                        <div class="section_title_dark" style="font-size:50px; word-wrap:break-word;" >
+                        <div class="section_title_dark" style="font-size:50px; font-weight:bold; word-wrap:break-word;" >
                             <?=$article['subject']?>
                         </div>
                         <div class="dateSection">
                             <?=$created_time?>
                         </div>
-                        <div class="section_subexplain" style="padding-top:7px">
+                        <div class="section_subexplain" style="padding-top:50px">
                              <?=$article['content']?>
                         </div>
                         <div>

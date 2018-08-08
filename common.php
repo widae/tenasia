@@ -309,7 +309,6 @@
 	}
 
 	// 위대한 추가
-
 	function getplaintextintrofromhtml($html, $numchars) {
 	    // Remove the HTML tags
 	    $stripedStr = strip_tags($html);
@@ -324,7 +323,6 @@
 		}
 	    return $decodedStr;
 	}
-
 	function replaceNbsp($intro){
 		$str = htmlentities($intro, null, 'utf-8');
 		$replaced = str_replace("&nbsp;", "<br>", $str);
