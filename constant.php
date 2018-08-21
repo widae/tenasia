@@ -1,13 +1,13 @@
 <?php
 
     //$host                     = "localhost";
-	$root                     = "http://192.168.19.55/tenasia";
+    $root                     = "http://52.78.175.250/tenasia";
     $LOG_FILE                 = "tenasia/tenasia.log";
 
     $dbhost                   = 'localhost';
 	$dbname                   = 'tenasia';
-	$dbuser                   = 'tenasia';
-	$dbpwd                    = 'tenasia!';
+	$dbuser                   = 'root';
+	$dbpwd                    = 'widae112';
 
 	// $host                     = "http://investmentformula.binarytools.co.kr/";
 	// $LOG_FILE                 = "/var/www/html/investmentformula/geotogong.log";

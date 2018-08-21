@@ -116,8 +116,12 @@ jQuery(document).ready(function($) {
                     </div>
                 <?php
                         endforeach;
-                    }
+                    }else{
                 ?>
+		    <div class="container text-center" style="padding-top:40px; font-size:25px; color:#373737;">등록된 기사가 존재하지 않습니다.</div>
+		<?php
+		    }
+		?>
                     <div id="page_link">
                         <?=$paging ?>
                     </div>
